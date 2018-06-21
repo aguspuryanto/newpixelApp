@@ -52,5 +52,33 @@ angular.module('starter.controllers', [])
   ];
 })
 
+.controller('HomeCtrl', function($scope, $stateParams) {
+
+  $scope.options = {
+    autoplay: 2500,
+    loop: false,
+    // effect: 'fade',
+    speed: 1000,
+    slidesPerView: 1,
+    centeredSlides: true
+  }
+
+  /*$scope.$on("$ionicSlides.sliderInitialized", function(event, data){
+    // data.slider is the instance of Swiper
+    $scope.slider = data.slider;
+  });
+
+  $scope.$on("$ionicSlides.slideChangeStart", function(event, data){
+    // console.log('Slide change is beginning');
+  });
+
+  $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
+    // note: the indexes are 0-based
+    $scope.activeIndex = data.slider.activeIndex;
+    $scope.previousIndex = data.slider.previousIndex;
+  });*/
+
+})
+
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 });

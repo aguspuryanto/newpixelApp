@@ -1,1 +1,21 @@
 /* Empty. Add your own CSS if you like */
+.row{
+  flex-wrap: wrap;
+  padding: 0px;
+}
+
+.col{
+  border: 1px solid #ddd;
+  margin-right: 15px;
+}
+
+.col:last-child {
+	margin-right: 0px;
+}
+
+.col-33 {
+	border: 1px solid #ddd;
+	padding: 10px;
+}
+
+.mt20 { margin-top: 20px; }

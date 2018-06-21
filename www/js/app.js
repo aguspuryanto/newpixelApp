@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -18,6 +18,19 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
+    }
+
+    /*var isAndroid = ionic.Platform.isAndroid();
+    if(isAndroid){
+      StatusBar.hide();
+    }*/
+
+    if (cordova.platformId == 'android') {
+      StatusBar.backgroundColorByHexString("#333");
+    }
+
+    if(ionic.Platform.isWebView()) {
+      $cordovaStatusbar.styleHex('#FF0000'); //Do what you want
     }
   });
 })
@@ -41,11 +54,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-  .state('app.browse', {
-      url: '/browse',
+  .state('app.home', {
+      url: '/home',
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html'
+          templateUrl: 'templates/browse.html',
+          controller: 'HomeCtrl'
         }
       }
     })
@@ -69,5 +83,5 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/home');
 });
